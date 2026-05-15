@@ -75,7 +75,7 @@ All models are fine-tuned Transformer-based architectures and are dynamically lo
 
 This task identifies whether a paragraph is relevant to sustainability frameworks and aligns it with GRI and SDG standards.
 
-- **Model:** bert-base-cased  
+- **[Model](https://huggingface.co/alirezamousio/SA_MODEL):** bert-base-cased  
 - **Performance:** Accuracy 97.7% ± 1.4  
 - **Dataset:** 1,273 samples (973 relevant, 300 irrelevant)
 
@@ -84,12 +84,12 @@ This task identifies whether a paragraph is relevant to sustainability framework
 ### 2. Topic Alignment
 
 #### 2.1 SDG Topic Alignment (17 SDGs Multi-label Classification)
-- **Model:** bert-base-cased  
+- **[Model](https://huggingface.co/alirezamousio/SDG_MODEL):** bert-base-cased  
 - **Performance:** 86% ([OSDG](https://github.com/osdg-ai/osdg-data) benchmark)  
 - **Dataset:** 29,353 multi-label samples  
 
 #### 2.2 GRI Topic Alignment
-- **Model:** bert-base-cased  
+- **[Model](https://huggingface.co/alirezamousio/GRITopics_MODEL):** bert-base-cased  
 - **Performance:** Accuracy 78% ± 5.5  
 - **Dataset:** 973 samples  
   - Economic: 122  
@@ -102,17 +102,17 @@ This task identifies whether a paragraph is relevant to sustainability framework
 ### 3. Disclosure Quality Analysis
 
 #### 3.1 Informative vs Non-Informative (Vague) Detection
-- **Model:** bert-base-cased  
+- **[Model](https://huggingface.co/alirezamousio/INFVague_MODEL):** bert-base-cased  
 - **Performance:** Accuracy 87.2% ± 2.1  
 - **Dataset:** 732 samples (629 informative, 103 vague)
 
 #### 3.2 Qualitative vs Quantitative Disclosure Classification
-- **Model:** bert-base-cased  
+- **[Model](https://huggingface.co/alirezamousio/QQ_MODEL):** bert-base-cased  
 - **Performance:** Accuracy 92.1% ± 3.5  
 - **Dataset:** 707 samples (589 qualitative, 118 quantitative)
 
 #### 3.3 Greenwashing Risk Detection (High vs Low Potential)
-- **Model:** bert-base-cased  
+- **[Model](https://huggingface.co/alirezamousio/HPGW_MODEL):** bert-base-cased  
 - **Performance:** Accuracy 91.0% ± 3.5  
 - **Dataset:** 542 samples (457 high-risk, 85 low-risk)
 
@@ -121,22 +121,22 @@ This task identifies whether a paragraph is relevant to sustainability framework
 ### 4. Climate-Related ESG Analysis
 
 #### 4.1 Climate Relevance Classification
-- **Model:** ClimateBERT (distilroberta-base-climate-f)  
+- **[Model](https://huggingface.co/alirezamousio/Climate_MODEL):** ClimateBERT (distilroberta-base-climate-f)  
 - **Performance:** 93.3% ± 2.7 (internal) / 89% ([Climate Detection](https://huggingface.co/datasets/climatebert/climate_detection) benchmark)  
 - **Dataset:** 1,768 samples (355 climate, 231 non-climate)
 
 #### 4.2 GRI Climate Category Alignment
-- **Model:** ClimateBERT  
+- **[Model](https://huggingface.co/alirezamousio/GRIClimate_MODEL):** ClimateBERT  
 - **Performance:** Accuracy 80.5% ± 4.5  
 - **Dataset:** 586 samples (multi-class GRI climate categories)
 
 #### 4.3 SDG 13 (Climate Action) Alignment
-- **Model:** ClimateBERT (distilroberta-base-climate-f)  
+- **[Model](https://huggingface.co/alirezamousio/ClimateActionSDG13_MODEL):** ClimateBERT (distilroberta-base-climate-f)  
 - **Performance:** Accuracy 91.7%  
 - **Dataset:** 888 samples (568 climate action, 320 non-climate action)
 
-#### 4.4 Extended GRI Climate Classification
-- **Model:** ClimateBERT  
+#### 4.4 Extended GRI-SDG13 Classification
+- **[Model](https://huggingface.co/alirezamousio/GRISDG13_MODEL):** ClimateBERT  
 - **Performance:** Accuracy 94.5%  
 - **Dataset:** 888 samples  
   - GRI categories: General, Environmental, Economic  
