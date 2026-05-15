@@ -1,11 +1,9 @@
-# UniTor ESG Insight System
+# UniTor ESG Insights System
 ![Logo](assets/Logo.png)
-## An Interactive Human–AI Hierarchical Multi-Level System for Sustainability Report Paragraph-Level ESG Analysis 
-An interactive human-in-the-loop system for hierarchical, multi-level analysis of sustainability report paragraphs, integrating AI-assisted workflows for PDF parsing, GRI–SDG framework relevance filtering, SDG/GRI topic alignment, disclosure quality assessment, and climate-related analysis.
-
 Companion repository for the paper submitted at [CIKM 2026](https://cikm2026.diag.uniroma1.it/), Rome, ITALY. 
 
 ## Table of Contents
+- [Overview](#overview)
 - [Architecture](#architecture)
 - [Tasks and Experimental Results](#tasks-and-experimental-results)
 - [Workflow](#workflow)
@@ -15,14 +13,17 @@ Companion repository for the paper submitted at [CIKM 2026](https://cikm2026.dia
 - [Citation](#citation)
 - [License](#license)
 
-## Architecture
+## Overview
+### An Interactive Human–AI Hierarchical Multi-Level System for Sustainability Report Paragraph-Level ESG Analysis 
+An interactive human-in-the-loop system for hierarchical, multi-level analysis of sustainability report paragraphs, integrating AI-assisted workflows for PDF parsing, GRI–SDG framework relevance filtering, SDG/GRI topic alignment, disclosure quality assessment, and climate-related analysis.
 
+## Architecture
 The UniTor ESG Insight System follows a hierarchical, multi-stage architecture designed for fine-grained ESG analysis of sustainability reports. The system is structured as a pipeline that integrates automatic annotation, hierarchical human validation, and downstream analytical modules to support multiple stakeholder requirements.
 
 The architecture is composed of four main layers:
 
 ### 1. Automatic GRI–SDG Annotation Layer  
-This layer performs the initial transformation of raw sustainability report paragraphs into structured ESG-aligned data. It consists of five sequential steps:
+This layer performs the initial transformation of raw sustainability report paragraphs into structured ESG-aligned data inspired by [1, 2]. It consists of five sequential steps:
 
 1. Document segmentation  
 2. Semantic preprocessing  
@@ -31,6 +32,12 @@ This layer performs the initial transformation of raw sustainability report para
 5. GRI–SDG ranking and metadata construction  
 
 This stage produces the initial weakly/heuristically labeled dataset used for further refinement.
+
+#### References 
+
+[1] Anaraki, S. A. M., Croce, D., & Basili, R. (2025). *Automatic GRI-SDG Annotation and LLM-Based Filtering for Sustainability Reports*. Proceedings of the Eleventh Italian Conference on Computational Linguistics (CLiC-it 2025), 775–784. 
+
+[2] Anaraki, S. A. M., Croce, D., & Basili, R. (2025). *Unsupervised Sustainability Report Labeling based on the integration of the GRI and SDG standards*. Proceedings of the Fourth Workshop on NLP for Positive Impact (NLP4PI), 151–162.
 
 ---
 
@@ -315,4 +322,5 @@ UniTor ESG Insight System/
 
 ## Citation
 ## License
+
 
