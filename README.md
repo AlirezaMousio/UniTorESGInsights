@@ -62,7 +62,7 @@ The system is designed to generate insights tailored for multiple stakeholder gr
 ### Architecture Overview
 
 <p align="center">
-  <img src="assets/UniTorESGArch.pdf" width="750"/>
+  <img src="assets/UniTorESGArch.png" width="750"/>
 </p>
 
 ## Tasks and Experimental Results
@@ -154,7 +154,7 @@ The UniTor ESG Insight System implements a Human-in-the-Loop interactive workflo
 ### Human-in-the-Loop Interactive Workflow Overview
 
 <p align="center">
-  <img src="assets/UniTorESGWF.pdf" width="750"/>
+  <img src="assets/UniTorESGWF.png" width="750"/>
 </p>
 
 ---
