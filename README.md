@@ -275,13 +275,12 @@ UniTor ESG Insight System/
 │
 ├── app.py
 ├── requirements.txt
-├── packages.txt
 ├── README.md
 ├── .gitignore
 │
 ├── configs/
 │   ├── model_config.py
-│   ├── labels.py
+│   ├── sdg_labels.py
 │   └── paths.py
 │
 ├── models/
@@ -290,9 +289,8 @@ UniTor ESG Insight System/
 │   ├── model_loader.py
 │   └── predictor.py
 │
-├── processing/
-│   ├── pdf_processor.py
-│   └── image_processor.py
+├── pdf_processing/
+│   └── pdf_utils.py
 │
 ├── ui/
 │   ├── gradio_functions.py
