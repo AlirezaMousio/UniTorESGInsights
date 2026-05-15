@@ -1,0 +1,11 @@
+gradio
+torch
+transformers
+huggingface_hub
+pymupdf
+pdf2image
+pandas
+numpy
+matplotlib
+plotly
+Pillow
