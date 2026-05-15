@@ -280,8 +280,7 @@ UniTor ESG Insight System/
 │
 ├── configs/
 │   ├── model_config.py
-│   ├── sdg_labels.py
-│   └── paths.py
+│   └── sdg_labels.py
 │
 ├── models/
 │   ├── classifier.py
