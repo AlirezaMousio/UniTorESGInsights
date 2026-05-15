@@ -1,4 +1,5 @@
 # UniTor ESG Insight System
+![Logo](assets/Logo.png)
 ## An Interactive Human–AI Hierarchical Multi-Level System for Sustainability Report Paragraph-Level ESG Analysis 
 An interactive human-in-the-loop system for hierarchical, multi-level analysis of sustainability report paragraphs, integrating AI-assisted workflows for PDF parsing, GRI–SDG framework relevance filtering, SDG/GRI topic alignment, disclosure quality assessment, and climate-related analysis.
 
@@ -21,6 +22,7 @@ UniTor ESG Insight System is based on:
 3. Topic Alignment, Quility Analysis, Cliamte Analysis Downstream Tasks Classification Useful for
 4. Four Target Audiences Groups: Investors & Financial Analysts, Auditors, Assurance Providers, Policy-Makers & Regulators, and Corporate Managers & CSO
 
+![Architecture of UniTor ESG Insight System ](assets/UniTorESGArch.pdf)
 
 ## Tasks
   Performance table
