@@ -1,5 +1,5 @@
 # UniTor ESG Insights System
-![Logo](assets/Logo.png)
+![Logo](assets/logo.png)
 Companion repository for the paper submitted at [CIKM 2026](https://cikm2026.diag.uniroma1.it/), Rome, ITALY. 
 
 ## Table of Contents
@@ -69,7 +69,7 @@ The system is designed to generate insights tailored for multiple stakeholder gr
 ### Architecture Overview
 
 <p align="center">
-  <img src="assets/UniTorESGArch.png" width="750"/>
+  <img src="assets/architecture.png" width="750"/>
 </p>
 
 ## Tasks and Experimental Results
@@ -161,7 +161,7 @@ The UniTor ESG Insight System implements a Human-in-the-Loop interactive workflo
 ### Human-in-the-Loop Interactive Workflow Overview
 
 <p align="center">
-  <img src="assets/UniTorESGWF.png" width="750"/>
+  <img src="assets/workflow.png" width="750"/>
 </p>
 
 ---
@@ -303,6 +303,7 @@ UniTor ESG Insight System/
 │   └── interface.py
 │
 └── assets/
+    ├── logo.png
     ├── architecture.png
     ├── workflow.png
     │
