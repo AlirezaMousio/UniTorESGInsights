@@ -145,7 +145,7 @@ This task identifies whether a paragraph is relevant to sustainability framework
 
 ### System Integration Note
 
-All trained models are hosted on Hugging Face and are dynamically loaded into the Gradio interface to enable real-time ESG paragraph-level analysis across all tasks.
+All [trained models](https://huggingface.co/alirezamousio/models) are hosted on Hugging Face and are dynamically loaded into the Gradio interface to enable real-time ESG paragraph-level analysis across all tasks.
 
 ## Workflow
 
@@ -295,26 +295,22 @@ UniTor ESG Insight System/
 │   ├── theme.py
 │   └── interface.py
 │
-├── assets/
-│   ├── architecture.png
-│   ├── workflow.png
-│   │
-│   ├── sdg_icons/
-│   ├── gri_icons/
-│   │
-│   ├── example_reports/
-│   │   ├── sample_report_1.pdf
-│   │   └── sample_report_2.pdf
-│   │
-│   └── example_outputs/
-│       ├── extracted.csv
-│       ├── results.csv
-│       ├── chart_sdg.png
-│       └── chart_gri.png
-│
-└── huggingface/
-    ├── model_links.json
-    └── space_info.json
+└── assets/
+    ├── architecture.png
+    ├── workflow.png
+    │
+    ├── sdg_icons/
+    ├── gri_icons/
+    │
+    ├── example_reports/
+    │   ├── sample_report_1.pdf
+    │   └── sample_report_2.pdf
+    │
+    └── example_outputs/
+        ├── extracted.csv
+        ├── results.csv
+        ├── chart_sdg.png
+        └── chart_gri.png
 ```
 
 ## Citation
