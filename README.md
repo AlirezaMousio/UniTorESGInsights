@@ -261,8 +261,9 @@ The [system](https://huggingface.co/spaces/alirezamousio/HMLPADSSSRA) is fully d
 
 
 
-
 ## Repository Structure
+
+```bash
 UniTor ESG Insight System/
 │
 ├── app.py
@@ -314,6 +315,7 @@ UniTor ESG Insight System/
 └── huggingface/
     ├── model_links.json
     └── space_info.json
+```
 
 ## Citation
 ## License
