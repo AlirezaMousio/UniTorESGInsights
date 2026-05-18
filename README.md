@@ -305,6 +305,8 @@ UniTor ESG Insight System/
     │
     ├── sdg_icons/
     ├── gri_icons/
+    ├── quality_icons/
+    ├── climate_icons/
     │
     ├── example_reports/
     │   ├── sample_report_1.pdf
