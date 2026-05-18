@@ -276,7 +276,6 @@ UniTor ESG Insight System/
 ├── app.py
 ├── requirements.txt
 ├── README.md
-├── .gitignore
 │
 ├── configs/
 │   ├── model_config.py
