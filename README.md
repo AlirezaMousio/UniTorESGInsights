@@ -4,6 +4,7 @@ Companion repository for the paper submitted at [CIKM 2026](https://cikm2026.dia
 
 ## Table of Contents
 - [Overview](#overview)
+- [Quick Start](#quick-start) 
 - [Architecture](#architecture)
 - [Tasks and Experimental Results](#tasks-and-experimental-results)
 - [Workflow](#workflow)
@@ -16,6 +17,11 @@ Companion repository for the paper submitted at [CIKM 2026](https://cikm2026.dia
 ## Overview
 ### An Interactive Human–AI Hierarchical Multi-Level System for Sustainability Report Paragraph-Level ESG Analysis 
 An interactive human-in-the-loop system for hierarchical, multi-level analysis of sustainability report paragraphs, integrating AI-assisted workflows for PDF parsing, GRI–SDG framework relevance filtering, SDG/GRI topic alignment, disclosure quality assessment, and climate-related analysis.
+
+## Quick Start
+### 🌐 [Live Demo](https://huggingface.co/spaces/alirezamousio/UniTor_ESG_Insights_System)
+
+No installation required. All models are automatically loaded from Hugging Face Hub.
 
 ## Architecture
 The UniTor ESG Insight System follows a hierarchical, multi-stage architecture designed for fine-grained ESG analysis of sustainability reports. The system is structured as a pipeline that integrates automatic annotation, hierarchical human validation, and downstream analytical modules to support multiple stakeholder requirements.
@@ -73,89 +79,25 @@ The system is designed to generate insights tailored for multiple stakeholder gr
 </p>
 
 ## Tasks and Experimental Results
+All models are fine-tuned Transformer-based architectures and are dynamically loaded into the Gradio-based application via Hugging Face integration. The system evaluates multiple ESG-related classification and analysis tasks across paragraphs of sustainability reports:
 
-All models are fine-tuned Transformer-based architectures and are dynamically loaded into the Gradio-based application via Hugging Face integration. The system evaluates multiple ESG-related classification and analysis tasks across paragraphs of sustainability reports.
-
----
-
-### 1. Sustainability Framework Alignment (GRI & SDG Relevance)
-
-This task identifies whether a paragraph is relevant to sustainability frameworks and aligns it with GRI and SDG standards.
-
-- **[Model](https://huggingface.co/alirezamousio/SA_MODEL):** bert-base-cased  
-- **Performance:** Accuracy 97.7% ± 1.4  
-- **Dataset:** 1,273 samples (973 relevant, 300 irrelevant)
-
----
-
-### 2. Topic Alignment
-
-#### 2.1 SDG Topic Alignment (17 SDGs Multi-label Classification)
-- **[Model](https://huggingface.co/alirezamousio/SDG_MODEL):** bert-base-cased  
-- **Performance:** 86% ([OSDG](https://github.com/osdg-ai/osdg-data) benchmark)  
-- **Dataset:** 29,353 multi-label samples  
-
-#### 2.2 GRI Topic Alignment
-- **[Model](https://huggingface.co/alirezamousio/GRITopics_MODEL):** bert-base-cased  
-- **Performance:** Accuracy 78% ± 5.5  
-- **Dataset:** 973 samples  
-  - Economic: 122  
-  - Environmental: 378  
-  - General: 231  
-  - Social: 242  
-
----
-
-### 3. Disclosure Quality Analysis
-
-#### 3.1 Informative vs Non-Informative (Vague) Detection
-- **[Model](https://huggingface.co/alirezamousio/INFVague_MODEL):** bert-base-cased  
-- **Performance:** Accuracy 87.2% ± 2.1  
-- **Dataset:** 732 samples (629 informative, 103 vague)
-
-#### 3.2 Qualitative vs Quantitative Disclosure Classification
-- **[Model](https://huggingface.co/alirezamousio/QQ_MODEL):** bert-base-cased  
-- **Performance:** Accuracy 92.1% ± 3.5  
-- **Dataset:** 707 samples (589 qualitative, 118 quantitative)
-
-#### 3.3 Greenwashing Risk Detection (High vs Low Potential)
-- **[Model](https://huggingface.co/alirezamousio/HPGW_MODEL):** bert-base-cased  
-- **Performance:** Accuracy 91.0% ± 3.5  
-- **Dataset:** 542 samples (457 high-risk, 85 low-risk)
-
----
-
-### 4. Climate-Related ESG Analysis
-
-#### 4.1 Climate Relevance Classification
-- **[Model](https://huggingface.co/alirezamousio/Climate_MODEL):** ClimateBERT (distilroberta-base-climate-f)  
-- **Performance:** 93.3% ± 2.7 (internal) / 89% ([Climate Detection](https://huggingface.co/datasets/climatebert/climate_detection) benchmark)  
-- **Dataset:** 1,768 samples (355 climate, 231 non-climate)
-
-#### 4.2 GRI Climate Category Alignment
-- **[Model](https://huggingface.co/alirezamousio/GRIClimate_MODEL):** ClimateBERT  
-- **Performance:** Accuracy 80.5% ± 4.5  
-- **Dataset:** 586 samples (multi-class GRI climate categories)
-
-#### 4.3 SDG 13 (Climate Action) Alignment
-- **[Model](https://huggingface.co/alirezamousio/ClimateActionSDG13_MODEL):** ClimateBERT (distilroberta-base-climate-f)  
-- **Performance:** Accuracy 91.7%  
-- **Dataset:** 888 samples (568 climate action, 320 non-climate action)
-
-#### 4.4 Extended GRI-SDG13 Classification
-- **[Model](https://huggingface.co/alirezamousio/GRISDG13_MODEL):** ClimateBERT  
-- **Performance:** Accuracy 94.5%  
-- **Dataset:** 888 samples  
-  - GRI categories: General, Environmental, Economic  
-
----
-
-### System Integration Note
+- Sustainability Framework Alignment ([SA_MODEL](https://huggingface.co/alirezamousio/SA_MODEL))
+- Topic Alignment:
+  - SDG Classification ([SDG_MODEL](https://huggingface.co/alirezamousio/SDG_MODEL))
+  - GRI Topic Classification ([GRITopics_MODEL](https://huggingface.co/alirezamousio/GRITopics_MODEL))
+- Disclosure Quality Analysis:
+  - Informative vs Non-Informative (Vague) Detection ([INFVague_MODEL](https://huggingface.co/alirezamousio/INFVague_MODEL))
+  - Qualitative vs Quantitative Disclosure Classification ([QQ_MODEL](https://huggingface.co/alirezamousio/QQ_MODEL))
+  - High Potential Greenwashing Detection ([HPGW_MODEL](https://huggingface.co/alirezamousio/HPGW_MODEL))
+- Climate-Related ESG Analysis:
+  - Climate Relevance Classification ([Climate_MODEL](https://huggingface.co/alirezamousio/Climate_MODEL))
+  - GRI Climate Category Alignment ([GRIClimate_MODEL](https://huggingface.co/alirezamousio/GRIClimate_MODEL))
+  - Climate Action (SDG 13) Alignment ([ClimateActionSDG13_MODEL](https://huggingface.co/alirezamousio/ClimateActionSDG13_MODEL))
+  - GRI Climate Action Alignment ([GRISDG13_MODEL](https://huggingface.co/alirezamousio/GRISDG13_MODEL))
 
 All [trained models](https://huggingface.co/alirezamousio/models) are hosted on Hugging Face and are dynamically loaded into the Gradio interface to enable real-time ESG paragraph-level analysis across all tasks.
 
 ## Workflow
-
 The UniTor ESG Insight System implements a Human-in-the-Loop interactive workflow that transforms raw sustainability report PDFs into structured, multi-level ESG insights. The system supports both fully automated processing and user-driven correction/refinement at every stage.
 
 ### Human-in-the-Loop Interactive Workflow Overview
@@ -166,7 +108,7 @@ The UniTor ESG Insight System implements a Human-in-the-Loop interactive workflo
 
 ---
 
-### 1. Data Ingestion and PDF Processing
+### 1. PDF Ingestion & 2. Automatic Paragraph Extraction
 
 Users begin by uploading PDFs of sustainability reports. The system automatically:
 
@@ -184,12 +126,11 @@ This ensures flexibility between fully automated and user-curated datasets.
 
 ---
 
-### 2. Sustainability Framework (GRI–SDG) Alignment
+### 3. Sustainability Framework (GRI–SDG) Alignment
 
 Once a clean paragraph dataset is available, the system performs:
 
-- Classification of relevant vs non-relevant ESG content
-- GRI–SDG alignment prediction
+- Classification of Relevant vs Irrelevant ESG content based on GRI–SDG standards
 - Visualization of class distribution (relevant vs irrelevant)
 
 Users can:
@@ -199,13 +140,13 @@ Users can:
 
 ---
 
-### 3. Topic Alignment: SDG & GRI Classification 
+### 4. Topic Alignment: SDG & GRI Classification 
 
 Filtered relevant paragraphs are passed to fine-grained topic models for:
 
-- GRI topic classification
 - SDG classification
-  
+- GRI topic classification
+    
 The system provides:
 - Interactive dashboards with filtering by SDG or GRI categories
 - Table-based inspection of predictions
@@ -213,13 +154,13 @@ The system provides:
 
 ---
 
-### 4. Disclosure Quality Analysis
+### 5. Disclosure Quality Analysis
 
 The system analyzes *how ESG information is communicated*, not only what is reported. This includes:
 
 - Informative vs non-informative (vague) classification  
 - Qualitative vs quantitative disclosure detection  
-- High vs low potential greenwashing estimation  
+- High vs low potential blue and greenwashing estimation  
 
 Users can:
 - Run one or multiple quality tasks independently
@@ -229,13 +170,14 @@ Users can:
 
 ---
 
-### 5. Climate-Focused ESG Analysis
+### 6. Climate-Focused ESG Analysis
 
 The system provides specialized climate-related ESG analysis, including:
 
-- Climate relevance detection  
-- GRI climate category classification  
-- SDG 13 (Climate Action) alignment    
+ - Climate Relevance Classification
+ - GRI Climate Category Alignment
+ - Climate Action (SDG 13) Alignment
+ - GRI Climate Action Alignment 
 
 Users can:
 - Filter climate-related paragraphs
@@ -245,7 +187,7 @@ Users can:
 
 ---
 
-### 6. Output and Exploration Layer
+### Output and Exploration Layer
 
 For each stage, the system provides:
 
@@ -256,16 +198,17 @@ For each stage, the system provides:
 
 This enables a cyclical workflow where users continuously refine data quality and analysis outcomes.
 
----
+## Hugging Face Deployment
 
-### Hugging Face Deployment
+The [system](https://huggingface.co/spaces/alirezamousio/UniTor_ESG_Insights_System) is fully deployed via Hugging Face Spaces, allowing direct execution of the pipeline and interactive demonstration without local setup using free-tier infrastructure:
 
-The [system](https://huggingface.co/spaces/alirezamousio/HMLPADSSSRA) is fully deployed via Hugging Face Spaces, allowing direct execution of the pipeline and interactive demonstration without local setup.
+- CPU: 2 vCPU / 16 GB RAM
+- GPU: ZeroGPU (on-demand NVIDIA H200 access)
+- Automatic sleep after inactivity (48 hours)
 
----
+The architecture is fully compatible with both CPU and GPU environments.
 
-### Demo Video
-
+## Demo Video
 
 
 ## Repository Structure
@@ -298,25 +241,18 @@ UniTor ESG Insight System/
 │   ├── theme.py
 │   └── interface.py
 │
-└── assets/
-    ├── logo.png
-    ├── architecture.png
-    ├── workflow.png
-    │
-    ├── sdg_icons/
-    ├── gri_icons/
-    ├── quality_icons/
-    ├── climate_icons/
-    │
-    ├── example_reports/
-    │   ├── sample_report_1.pdf
-    │   └── sample_report_2.pdf
-    │
+├── assets/
+│   ├── logo.png
+│   ├── architecture.png
+│   ├── workflow.png
+│   │
+│   ├── sdg_icons/
+│   ├── gri_icons/
+│   ├── quality_icons/
+│   └──  climate_icons/
+│
+└── example_reports/
     └── example_outputs/
-        ├── extracted.csv
-        ├── results.csv
-        ├── chart_sdg.png
-        └── chart_gri.png
 ```
 
 ## Citation
