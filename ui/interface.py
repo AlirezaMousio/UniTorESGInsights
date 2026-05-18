@@ -5,7 +5,23 @@ from ui.filters import (
     gri_images,
     filter_sdg,
     filter_gri,
-    toggle_filters
+    toggle_filters,
+    quality_task_1_gallery, 
+    quality_task_2_gallery, 
+    quality_task_3_gallery,
+    filter_quality_1,
+    filter_quality_2,
+    filter_quality_3,
+    toggle_quality_filters,
+    climate_images,
+    gri_climate_images, 
+    sdg13_images,
+    gri_sdg13_images,
+    filter_climate,
+    filter_gri_climate,
+    filter_sdg13,
+    filter_gri_sdg13,
+    toggle_climate
 )
 
 from ui.gradio_functions import (
@@ -126,9 +142,7 @@ def build_interface():
 
 
         # ---------- SDG FILTER ----------
-        sdg_container = gr.Column(visible=False)
-
-        with sdg_container:
+        with gr.Column(visible=False) as sdg_container:
             gr.Markdown("### SDG Filter")
 
             sdg_gallery = gr.Gallery(
@@ -146,9 +160,7 @@ def build_interface():
 
 
         # ---------- GRI FILTER ----------
-        gri_container = gr.Column(visible=False)
-
-        with gri_container:
+        with gr.Column(visible=False) as gri_container:
             gr.Markdown("### GRI Topic Filter")
 
             gri_gallery = gr.Gallery(
@@ -200,12 +212,77 @@ def build_interface():
         chart_tasks_2 = gr.Plot()
         download_2 = gr.File(label="Download Results")
 
+        # ---------- Quality Filter ----------
+        with gr.Row():
+
+            # ---------- INFORMATIVE / VAGUE ----------
+            with gr.Column(visible=False) as quality1_container:
+                gr.Markdown("### Informative vs Non-Informative/Vague")
+        
+                quality1_gallery = gr.Gallery(
+                    value=quality_task_1_gallery,
+                    columns=2,
+                    allow_preview=False
+                )
+        
+            # ---------- QUALITATIVE / QUANTITATIVE ----------
+            with gr.Column(visible=False) as quality2_container:
+        
+                gr.Markdown("### Qualitative vs Quantitative")
+        
+                quality2_gallery = gr.Gallery(
+                    value=quality_task_2_gallery,
+                    columns=2,
+                    allow_preview=False
+                )
+        
+            # ---------- GREENWASHING ----------
+            with gr.Column(visible=False) as quality3_container:
+        
+                gr.Markdown("### Greenwashing Potential")
+        
+                quality3_gallery = gr.Gallery(
+                    value=quality_task_3_gallery,
+                    columns=2,
+                    allow_preview=False
+                )
+
+        quality_result_table = gr.Dataframe(interactive=True)
+        
+        # ---------- Gallery Events ----------
+        quality1_gallery.select(
+            fn=filter_quality_1,
+            outputs=[quality_result_table, text]
+        )
+
+        quality2_gallery.select(
+            fn=filter_quality_2,
+            outputs=[quality_result_table, text]
+        )
+
+        quality3_gallery.select(
+            fn=filter_quality_3,
+            outputs=[quality_result_table, text]
+        )
+
+        # ---------- TOGGLE FILTERS ----------
+        task_selector_2.change(
+            fn=toggle_quality_filters,
+            inputs=task_selector_2,
+            outputs=[
+                quality1_container,
+                quality2_container,
+                quality3_container
+            ]
+        )
+
+        # ---------- RUN STEP 4 ----------
         run_tasks_btn_2.click(
             run_selected_tasks,
             inputs=task_selector_2,
             outputs=[download_2, table, chart_tasks_2]
         )
-
+            
         # =========================
         # STAGE 5: CLIMATE ANALYSIS
         # =========================
@@ -227,6 +304,95 @@ def build_interface():
         chart_tasks_3 = gr.Plot()
         download_3 = gr.File(label="Download Results")
 
+        # ---------- Climate Filter ----------
+        with gr.Row():
+
+            # ---------- Climate Alignment ----------
+            with gr.Column(visible=False) as climate1_container:
+                gr.Markdown("### Climate Alignment")
+        
+                climate1_gallery = gr.Gallery(
+                    value=climate_images,
+                    columns=2,
+                    #height=130,
+                    allow_preview=False
+                )
+        
+            # ---------- GRI Climate Alignment ----------
+            with gr.Column(visible=False) as climate2_container:
+                gr.Markdown("### GRI Climate Alignment")
+        
+                climate2_gallery = gr.Gallery(
+                    value=gri_climate_images,
+                    columns=4,
+                    #height=130,
+                    allow_preview=False
+                )
+
+        # shared table ROW 1
+        climate_table_1 = gr.Dataframe(interactive=True)
+
+        with gr.Row():
+
+            # ---------- Climate Action SDG13 ----------
+            with gr.Column(visible=False) as climate3_container:
+                gr.Markdown("### Climate Action (SDG13)")
+        
+                climate3_gallery = gr.Gallery(
+                    value=sdg13_images,
+                    columns=2,
+                    #height=130,
+                    allow_preview=False
+                )
+        
+            # ---------- GRI SDG13 ----------
+            with gr.Column(visible=False) as climate4_container:
+                gr.Markdown("### GRI Climate Action (SDG13)")
+        
+                climate4_gallery = gr.Gallery(
+                    value=gri_sdg13_images,
+                    columns=3,
+                    #height=130,
+                    allow_preview=False
+                )
+
+        # shared table ROW 2
+        climate_table_2 = gr.Dataframe(interactive=True)
+
+        # ---------- Gallery Events ----------
+        climate1_gallery.select(
+            fn=filter_climate,
+            outputs=[climate_table_1, text]
+        )
+        
+        climate2_gallery.select(
+            fn=filter_gri_climate,
+            outputs=[climate_table_1, text]
+        )
+        
+        climate3_gallery.select(
+            fn=filter_sdg13,
+            outputs=[climate_table_2, text]
+        )
+        
+        climate4_gallery.select(
+            fn=filter_gri_sdg13,
+            outputs=[climate_table_2, text]
+        )
+
+        # ---------- CONNECT TO DROPDOWN ----------
+        task_selector_3.change(
+            fn=toggle_climate,
+            inputs=task_selector_3,
+            outputs=[
+                climate1_container,
+                climate2_container,
+                climate3_container,
+                climate4_container
+            ]
+        )
+
+        # ---------- RUN STEP 5 ----------
         run_tasks_btn_3.click(
             run_selected_tasks,
             inputs=task_selector_3,
