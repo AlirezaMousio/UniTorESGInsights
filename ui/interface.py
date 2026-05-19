@@ -41,7 +41,7 @@ from ui.gradio_functions import (
 def build_interface():
     with gr.Blocks() as demo:
 
-        gr.Markdown("# An Interactive Human–AI Hierarchical Multi-Level System for Sustainability Report Paragraph-Level ESG Analysis")
+        gr.Markdown("# UniTor ESG Insights: An Interactive Human-in-the-Loop System for Traceable Sustainability Report Analysis")
 
         # gr.Image(
         #    value="assets/logo.png",
