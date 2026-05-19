@@ -42,9 +42,9 @@ Users can:
 8. Generate final traceable dashboards  
 
 ## Quick Start
-### 🌐 [Live Demo](https://huggingface.co/spaces/alirezamousio/UniTor_ESG_Insights_System)
+### 🌐 [Live Demo](https://huggingface.co/spaces/sag-uniroma2/UniTorESGInsights)
 
-No installation required. All [models](https://huggingface.co/alirezamousio/models) are automatically loaded from Hugging Face Hub.
+No installation required. All [models](https://hf.co/collections/sag-uniroma2/unitoresginsights) are automatically loaded from Hugging Face Hub.
 
 ## Architecture
 The UniTor ESG Insight System follows a hierarchical, multi-stage architecture designed for fine-grained ESG analysis of sustainability reports. The system is structured as a pipeline that integrates automatic annotation, hierarchical human validation, and downstream analytical modules to support multiple stakeholder requirements.
@@ -104,21 +104,21 @@ The system is designed to generate insights tailored for multiple stakeholder gr
 ## Tasks and Experimental Results
 All models are fine-tuned Transformer-based architectures and are dynamically loaded into the Gradio-based application via Hugging Face integration. The system evaluates multiple ESG-related classification and analysis tasks across paragraphs of sustainability reports:
 
-- Sustainability Framework Alignment ([SA_MODEL](https://huggingface.co/alirezamousio/SA_MODEL))
+- Sustainability Framework Alignment ([SA_MODEL](https://huggingface.co/sag-uniroma2/SA_MODEL))
 - Topic Alignment:
-  - SDG Classification ([SDG_MODEL](https://huggingface.co/alirezamousio/SDG_MODEL))
-  - GRI Topic Classification ([GRITopics_MODEL](https://huggingface.co/alirezamousio/GRITopics_MODEL))
+  - SDG Classification ([SDG_MODEL](https://huggingface.co/sag-uniroma2/SDG_MODEL))
+  - GRI Topic Classification ([GRITopics_MODEL](https://huggingface.co/sag-uniroma2/GRITopics_MODEL))
 - Disclosure Quality Analysis:
-  - Informative vs Non-Informative (Vague) Detection ([INFVague_MODEL](https://huggingface.co/alirezamousio/INFVague_MODEL))
-  - Qualitative vs Quantitative Disclosure Classification ([QQ_MODEL](https://huggingface.co/alirezamousio/QQ_MODEL))
-  - High Potential Greenwashing Detection ([HPGW_MODEL](https://huggingface.co/alirezamousio/HPGW_MODEL))
+  - Informative vs Non-Informative (Vague) Detection ([INFVague_MODEL](https://huggingface.co/sag-uniroma2/INFVague_MODEL))
+  - Qualitative vs Quantitative Disclosure Classification ([QQ_MODEL](https://huggingface.co/sag-uniroma2/QQ_MODEL))
+  - High Potential Greenwashing Detection ([HPGW_MODEL](https://huggingface.co/sag-uniroma2/HPGW_MODEL))
 - Climate-Related ESG Analysis:
-  - Climate Relevance Classification ([Climate_MODEL](https://huggingface.co/alirezamousio/Climate_MODEL))
-  - GRI Climate Category Alignment ([GRIClimate_MODEL](https://huggingface.co/alirezamousio/GRIClimate_MODEL))
-  - Climate Action (SDG 13) Alignment ([ClimateActionSDG13_MODEL](https://huggingface.co/alirezamousio/ClimateActionSDG13_MODEL))
-  - GRI Climate Action Alignment ([GRISDG13_MODEL](https://huggingface.co/alirezamousio/GRISDG13_MODEL))
+  - Climate Relevance Classification ([Climate_MODEL](https://huggingface.co/sag-uniroma2/Climate_MODEL))
+  - GRI Climate Category Alignment ([GRIClimate_MODEL](https://huggingface.co/sag-uniroma2/GRIClimate_MODEL))
+  - Climate Action (SDG 13) Alignment ([ClimateActionSDG13_MODEL](https://huggingface.co/sag-uniroma2/ClimateActionSDG13_MODEL))
+  - GRI Climate Action Alignment ([GRISDG13_MODEL](https://huggingface.co/sag-uniroma2/GRISDG13_MODEL))
 
-All [trained models](https://huggingface.co/alirezamousio/models) are hosted on Hugging Face and are dynamically loaded into the Gradio interface to enable real-time ESG paragraph-level analysis across all tasks.
+All [trained models](https://hf.co/collections/sag-uniroma2/unitoresginsights) are hosted on Hugging Face and are dynamically loaded into the Gradio interface to enable real-time ESG paragraph-level analysis across all tasks.
 
 ## Workflow
 The UniTor ESG Insight System implements a Human-in-the-Loop interactive workflow that transforms raw sustainability report PDFs into structured, multi-level ESG insights. The system supports both fully automated processing and user-driven correction/refinement at every stage.
@@ -224,7 +224,7 @@ This enables a cyclical workflow where users continuously refine data quality an
 
 ## Hugging Face Deployment
 
-Implemented using **Gradio** and deployed on **Hugging Face Spaces**. The [system](https://huggingface.co/spaces/alirezamousio/UniTor_ESG_Insights_System) is fully deployed via Hugging Face Spaces, allowing direct execution of the pipeline and interactive demonstration without local setup using free-tier infrastructure:
+Implemented using **Gradio** and deployed on **Hugging Face Spaces**. The [system](https://huggingface.co/spaces/sag-uniroma2/UniTorESGInsights) is fully deployed via Hugging Face Spaces, allowing direct execution of the pipeline and interactive demonstration without local setup using free-tier infrastructure:
 
 - CPU: 2 vCPU / 16 GB RAM
 - GPU: ZeroGPU (on-demand NVIDIA H200 access)
