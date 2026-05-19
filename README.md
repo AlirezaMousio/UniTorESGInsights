@@ -1,6 +1,6 @@
-# UniTor ESG Insights System
+# UniTor ESG Insights
 ![Logo](assets/logo.png)
-Companion repository for the paper submitted at [CIKM 2026](https://cikm2026.diag.uniroma1.it/), Rome, ITALY. 
+Companion repository for the paper (UniTor ESG Insights: An Interactive Human-in-the-Loop System for Traceable Sustainability Report Analysis) submitted at [CIKM 2026](https://cikm2026.diag.uniroma1.it/), Rome, ITALY. 
 
 ## Table of Contents
 - [Overview](#overview)
@@ -15,13 +15,36 @@ Companion repository for the paper submitted at [CIKM 2026](https://cikm2026.dia
 - [License](#license)
 
 ## Overview
-### An Interactive Human–AI Hierarchical Multi-Level System for Sustainability Report Paragraph-Level ESG Analysis 
-An interactive human-in-the-loop system for hierarchical, multi-level analysis of sustainability report paragraphs, integrating AI-assisted workflows for PDF parsing, GRI–SDG framework relevance filtering, SDG/GRI topic alignment, disclosure quality assessment, and climate-related analysis.
+### An Interactive Human-in-the-Loop System for Traceable Sustainability Report Analysis
+UniTor ESG Insights is a **human-in-the-loop ESG analysis system** that performs **traceable, paragraph-level sustainability report analysis**.
+Unlike document-level ESG classifiers, this system is designed around a **bottom-up evidence workflow**, where every prediction can be traced back to the original paragraph in the source PDF. The system transforms a sustainability report into:
+
+PDF → Paragraph Units → ESG Classifiers → Interactive Evidence Layer → Aggregation Dashboards
+
+Every output (SDG, GRI, disclosure quality, climate relevance) is:
+
+- 🔗 Linked to original paragraph text
+- 📄 Linked to page number in the PDF
+- 🧾 Exportable as structured CSV
+- 🔁 Editable and re-runnable by the user
+
+This enables **inspection, correction, and re-aggregation of ESG predictions**.
+
+Users can:
+
+1. Upload PDF sustainability report  
+2. Extract paragraph-level units (with provenance)  
+3. Run ESG classifiers (SDG, GRI, climate, quality)  
+4. Inspect predictions at paragraph level  
+5. Correct outputs manually (CSV editing)  
+6. Re-upload corrected data  
+7. Re-run downstream analysis  
+8. Generate final traceable dashboards  
 
 ## Quick Start
 ### 🌐 [Live Demo](https://huggingface.co/spaces/alirezamousio/UniTor_ESG_Insights_System)
 
-No installation required. All models are automatically loaded from Hugging Face Hub.
+No installation required. All [models](https://huggingface.co/alirezamousio/models) are automatically loaded from Hugging Face Hub.
 
 ## Architecture
 The UniTor ESG Insight System follows a hierarchical, multi-stage architecture designed for fine-grained ESG analysis of sustainability reports. The system is structured as a pipeline that integrates automatic annotation, hierarchical human validation, and downstream analytical modules to support multiple stakeholder requirements.
@@ -195,12 +218,13 @@ For each stage, the system provides:
 - Interactive dashboards with filtering and visualization
 - Task-specific outputs (GRI, SDG, quality, climate)
 - Re-upload capability for iterative refinement
+- Traceable navigation from summary → paragraph evidence
 
 This enables a cyclical workflow where users continuously refine data quality and analysis outcomes.
 
 ## Hugging Face Deployment
 
-The [system](https://huggingface.co/spaces/alirezamousio/UniTor_ESG_Insights_System) is fully deployed via Hugging Face Spaces, allowing direct execution of the pipeline and interactive demonstration without local setup using free-tier infrastructure:
+Implemented using **Gradio** and deployed on **Hugging Face Spaces**. The [system](https://huggingface.co/spaces/alirezamousio/UniTor_ESG_Insights_System) is fully deployed via Hugging Face Spaces, allowing direct execution of the pipeline and interactive demonstration without local setup using free-tier infrastructure:
 
 - CPU: 2 vCPU / 16 GB RAM
 - GPU: ZeroGPU (on-demand NVIDIA H200 access)
