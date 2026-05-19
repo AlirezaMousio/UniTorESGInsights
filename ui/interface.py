@@ -43,18 +43,18 @@ def build_interface():
 
         gr.Markdown("# An Interactive Human–AI Hierarchical Multi-Level System for Sustainability Report Paragraph-Level ESG Analysis")
 
-        gr.Image(
-            value="assets/logo.png",
-            label="UniTor ESG Insights System",
-            interactive=False,
-            #width=600
-        )
-        gr.Image(
-            value="assets/architecture.png",
-            label="Architecture Overview",
-            interactive=False,
-            #width=600
-        )
+        # gr.Image(
+        #    value="assets/logo.png",
+        #    label="UniTor ESG Insights System",
+        #    interactive=False,
+        #    #width=600
+        #)
+        # gr.Image(
+        #    value="assets/architecture.png",
+        #    label="Architecture Overview",
+        #    interactive=False,
+        #    #width=600
+        #)
 
         gr.Image(
             value="assets/workflow.png",
