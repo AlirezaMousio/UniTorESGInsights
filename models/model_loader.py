@@ -103,7 +103,7 @@ def get_model(task_name):
     if task_name in LOADED_MODELS:
         return LOADED_MODELS[task_name]
 
-    repo = f"alirezamousio/{MODEL_FOLDERS[task_name]}"
+    repo = f"sag-uniroma2/{MODEL_FOLDERS[task_name]}"
     #folder = snapshot_download(repo_id=repo)
     
     token = os.getenv("HF_TOKEN")
