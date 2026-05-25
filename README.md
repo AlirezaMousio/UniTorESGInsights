@@ -175,7 +175,7 @@ Implemented using **Gradio** and deployed on **Hugging Face Spaces**. The [syste
 The architecture is fully compatible with both CPU and GPU environments.
 
 ## Demo Video
-### 🎬 [Demo Video](https://1drv.ms/v/c/f705e1ad11b93e4f/IQBix55Z889xRp6SNhhntCJpAfKmQKzFV5U5_tCUS2VOIj8)
+### 🎬 [Demo Video](https://youtu.be/8aAJnDrB24M)
 
 ## Repository Structure
 
