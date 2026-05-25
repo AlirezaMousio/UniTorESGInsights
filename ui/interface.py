@@ -49,12 +49,6 @@ def build_interface():
         #    interactive=False,
         #    #width=600
         #)
-        # gr.Image(
-        #    value="assets/architecture.png",
-        #    label="Architecture Overview",
-        #    interactive=False,
-        #    #width=600
-        #)
 
         gr.Image(
             value="assets/workflow.png",
