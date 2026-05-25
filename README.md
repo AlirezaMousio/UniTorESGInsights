@@ -4,10 +4,9 @@ Companion repository for the paper (UniTor ESG Insights: An Interactive Human-in
 
 ## Table of Contents
 - [Overview](#overview)
-- [Quick Start](#quick-start) 
-- [Architecture](#architecture)
-- [Tasks and Experimental Results](#tasks-and-experimental-results)
+- [Quick Start](#quick-start)
 - [Workflow](#workflow)
+- [Tasks and Experimental Results](#tasks-and-experimental-results)
 - [Hugging Face Deployment](#hugging-face-deployment)
 - [Demo Video](#demo-video)
 - [Repository Structure](#repository-structure)
@@ -23,19 +22,17 @@ PDF → Paragraph Units → ESG Classifiers → Interactive Evidence Layer → A
 
 Every output (SDG, GRI, disclosure quality, climate relevance) is:
 
-- 🔗 Linked to original paragraph text
-- 📄 Linked to page number in the PDF
-- 🧾 Exportable as structured CSV
-- 🔁 Editable and re-runnable by the user
+- Linked to original paragraph text
+- Linked to page number in the PDF
+- Exportable as structured CSV
+- Editable and re-runnable by the user
 
-This enables **inspection, correction, and re-aggregation of ESG predictions**.
-
-Users can:
+This enables **inspection, correction, and re-aggregation of ESG predictions**. The analyst can optionally correct or refine paragraph-level predictions in the exported CSV and re-upload the updated file, allowing the system to propagate these corrections to downstream visualizations and dashboard-level aggregations:
 
 1. Upload PDF sustainability report  
 2. Extract paragraph-level units (with provenance)  
-3. Run ESG classifiers (SDG, GRI, climate, quality)  
-4. Inspect predictions at paragraph level  
+3. Run ESG classifiers (SDG, GRI, quality, climate)  
+4. Inspect predictions at the paragraph level  
 5. Correct outputs manually (CSV editing)  
 6. Re-upload corrected data  
 7. Re-run downstream analysis  
@@ -45,80 +42,6 @@ Users can:
 ### 🌐 [Live Demo](https://huggingface.co/spaces/sag-uniroma2/UniTorESGInsights)
 
 No installation required. All [models](https://hf.co/collections/sag-uniroma2/unitoresginsights) are automatically loaded from Hugging Face Hub.
-
-## Architecture
-The UniTor ESG Insight System follows a hierarchical, multi-stage architecture designed for fine-grained ESG analysis of sustainability reports. The system is structured as a pipeline that integrates automatic annotation, hierarchical human validation, and downstream analytical modules to support multiple stakeholder requirements.
-
-The architecture is composed of four main layers:
-
-### 1. Automatic GRI–SDG Annotation Layer  
-This layer performs the initial transformation of raw sustainability report paragraphs into structured ESG-aligned data inspired by [1, 2]. It consists of five sequential steps:
-
-1. Document segmentation  
-2. Semantic preprocessing  
-3. GRI–SDG hypothesis generation  
-4. Paragraph filtering based on relevance  
-5. GRI–SDG ranking and metadata construction  
-
-This stage produces the initial weakly/heuristically labeled dataset used for further refinement.
-
-#### References 
-
-[1] Anaraki, S. A. M., Croce, D., & Basili, R. (2025). *Automatic GRI-SDG Annotation and LLM-Based Filtering for Sustainability Reports*. Proceedings of the Eleventh Italian Conference on Computational Linguistics (CLiC-it 2025), 775–784. 
-
-[2] Anaraki, S. A. M., Croce, D., & Basili, R. (2025). *Unsupervised Sustainability Report Labeling based on the integration of the GRI and SDG standards*. Proceedings of the Fourth Workshop on NLP for Positive Impact (NLP4PI), 151–162.
-
----
-
-### 2. Hierarchical Multi-Level Human Validation Layer  
-This layer introduces expert validation to ensure annotation quality and consistency. It supports multi-level review of ESG labels and refines automatically generated annotations for dataset reliability in downstream tasks.
-
----
-
-### 3. Downstream ESG Analytical Layer  
-This layer performs structured ESG interpretation and classification using fine-tuned transformer models trained on validated datasets. It supports multiple analytical tasks, including:
-
-- Sustainability framework alignment  
-- Topic alignment (SDG and GRI topic classification)  
-- Disclosure quality assessment 
-- Climate-related sustainability analysis  
-
----
-
-### 4. Target Audience Layer  
-The system is designed to generate insights tailored for multiple stakeholder groups:
-
-- Investors & Financial Analysts  
-- Auditors & Assurance Providers  
-- Policy Makers & Regulators  
-- Corporate Managers & CSOs  
-
----
-
-### Architecture Overview
-
-<p align="center">
-  <img src="assets/architecture.png" width="750"/>
-</p>
-
-## Tasks and Experimental Results
-All models are fine-tuned Transformer-based architectures and are dynamically loaded into the Gradio-based application via Hugging Face integration. The system evaluates multiple ESG-related classification and analysis tasks across paragraphs of sustainability reports:
-
-- Sustainability Framework Alignment ([SA_MODEL](https://huggingface.co/sag-uniroma2/SA_MODEL))
-- Topic Alignment:
-  - SDG Classification ([SDG_MODEL](https://huggingface.co/sag-uniroma2/SDG_MODEL))
-  - GRI Topic Classification ([GRITopics_MODEL](https://huggingface.co/sag-uniroma2/GRITopics_MODEL))
-- Disclosure Quality Analysis:
-  - Informative vs Non-Informative (Vague) Detection ([INFVague_MODEL](https://huggingface.co/sag-uniroma2/INFVague_MODEL))
-  - Qualitative vs Quantitative Disclosure Classification ([QQ_MODEL](https://huggingface.co/sag-uniroma2/QQ_MODEL))
-  - High Potential Greenwashing Detection ([HPGW_MODEL](https://huggingface.co/sag-uniroma2/HPGW_MODEL))
-- Climate-Related ESG Analysis:
-  - Climate Relevance Classification ([Climate_MODEL](https://huggingface.co/sag-uniroma2/Climate_MODEL))
-  - GRI Climate Category Alignment ([GRIClimate_MODEL](https://huggingface.co/sag-uniroma2/GRIClimate_MODEL))
-  - Climate Action (SDG 13) Alignment ([ClimateActionSDG13_MODEL](https://huggingface.co/sag-uniroma2/ClimateActionSDG13_MODEL))
-  - GRI Climate Action Alignment ([GRISDG13_MODEL](https://huggingface.co/sag-uniroma2/GRISDG13_MODEL))
-
-All [trained models](https://hf.co/collections/sag-uniroma2/unitoresginsights) are hosted on Hugging Face and are dynamically loaded into the Gradio interface to enable real-time ESG paragraph-level analysis across all tasks.
 
 ## Workflow
 The UniTor ESG Insight System implements a Human-in-the-Loop interactive workflow that transforms raw sustainability report PDFs into structured, multi-level ESG insights. The system supports both fully automated processing and user-driven correction/refinement at every stage.
@@ -183,7 +106,7 @@ The system analyzes *how ESG information is communicated*, not only what is repo
 
 - Informative vs non-informative (vague) classification  
 - Qualitative vs quantitative disclosure detection  
-- High vs low potential blue and greenwashing estimation  
+- High vs low potential blue and greenwashing risk signals detection  
 
 Users can:
 - Run one or multiple quality tasks independently
@@ -222,6 +145,25 @@ For each stage, the system provides:
 
 This enables a cyclical workflow where users continuously refine data quality and analysis outcomes.
 
+## Tasks and Experimental Results
+All models are fine-tuned Transformer-based architectures and are dynamically loaded into the Gradio-based application via Hugging Face integration. The system evaluates multiple ESG-related classification and analysis tasks across paragraphs of sustainability reports:
+
+- Sustainability Framework Alignment ([SA_MODEL](https://huggingface.co/sag-uniroma2/SA_MODEL))
+- Topic Alignment:
+  - SDG Classification ([SDG_MODEL](https://huggingface.co/sag-uniroma2/SDG_MODEL))
+  - GRI Topic Classification ([GRITopics_MODEL](https://huggingface.co/sag-uniroma2/GRITopics_MODEL))
+- Disclosure Quality Analysis:
+  - Informative vs Non-Informative (Vague) Detection ([INFVague_MODEL](https://huggingface.co/sag-uniroma2/INFVague_MODEL))
+  - Qualitative vs Quantitative Disclosure Classification ([QQ_MODEL](https://huggingface.co/sag-uniroma2/QQ_MODEL))
+  - High Potential Greenwashing Detection ([HPGW_MODEL](https://huggingface.co/sag-uniroma2/HPGW_MODEL))
+- Climate-Related ESG Analysis:
+  - Climate Relevance Classification ([Climate_MODEL](https://huggingface.co/sag-uniroma2/Climate_MODEL))
+  - GRI Climate Category Alignment ([GRIClimate_MODEL](https://huggingface.co/sag-uniroma2/GRIClimate_MODEL))
+  - Climate Action (SDG 13) Alignment ([ClimateActionSDG13_MODEL](https://huggingface.co/sag-uniroma2/ClimateActionSDG13_MODEL))
+  - GRI Climate Action Alignment ([GRISDG13_MODEL](https://huggingface.co/sag-uniroma2/GRISDG13_MODEL))
+
+All [trained models](https://hf.co/collections/sag-uniroma2/unitoresginsights) are hosted on Hugging Face and are dynamically loaded into the Gradio interface to enable real-time ESG paragraph-level analysis across all tasks.
+
 ## Hugging Face Deployment
 
 Implemented using **Gradio** and deployed on **Hugging Face Spaces**. The [system](https://huggingface.co/spaces/sag-uniroma2/UniTorESGInsights) is fully deployed via Hugging Face Spaces, allowing direct execution of the pipeline and interactive demonstration without local setup using free-tier infrastructure:
@@ -233,7 +175,7 @@ Implemented using **Gradio** and deployed on **Hugging Face Spaces**. The [syste
 The architecture is fully compatible with both CPU and GPU environments.
 
 ## Demo Video
-
+### 🎬 [Demo Video](https://1drv.ms/v/c/f705e1ad11b93e4f/IQBix55Z889xRp6SNhhntCJpAfKmQKzFV5U5_tCUS2VOIj8)
 
 ## Repository Structure
 
@@ -267,7 +209,6 @@ UniTor ESG Insight System/
 │
 ├── assets/
 │   ├── logo.png
-│   ├── architecture.png
 │   ├── workflow.png
 │   │
 │   ├── sdg_icons/
