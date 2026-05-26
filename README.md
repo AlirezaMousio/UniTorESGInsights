@@ -155,7 +155,7 @@ All models are fine-tuned Transformer-based architectures and are dynamically lo
 - Disclosure Quality Analysis:
   - Informative vs Non-Informative (Vague) Detection ([INFVague_MODEL](https://huggingface.co/sag-uniroma2/INFVague_MODEL))
   - Qualitative vs Quantitative Disclosure Classification ([QQ_MODEL](https://huggingface.co/sag-uniroma2/QQ_MODEL))
-  - High Potential Greenwashing Detection as a weak-disclosure risk proxy ([HPGW_MODEL](https://huggingface.co/sag-uniroma2/HPGW_MODEL))
+  - High Potential Greenwashing Detection as Weak-Disclosure Risk Proxy ([HPGW_MODEL](https://huggingface.co/sag-uniroma2/HPGW_MODEL))
 - Climate-Related ESG Analysis:
   - Climate Relevance Classification ([Climate_MODEL](https://huggingface.co/sag-uniroma2/Climate_MODEL))
   - GRI Climate Category Alignment ([GRIClimate_MODEL](https://huggingface.co/sag-uniroma2/GRIClimate_MODEL))
