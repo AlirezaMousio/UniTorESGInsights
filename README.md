@@ -10,7 +10,6 @@ Companion repository for the paper (UniTor ESG Insights: An Interactive Human-in
 - [Hugging Face Deployment](#hugging-face-deployment)
 - [Demo Video](#demo-video)
 - [Repository Structure](#repository-structure)
-- [Citation](#citation)
 - [License](#license)
 
 ## Overview
@@ -220,7 +219,6 @@ UniTor ESG Insight System/
     └── example_outputs/
 ```
 
-## Citation
 ## License
-
+This project is released under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
