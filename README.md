@@ -218,11 +218,12 @@ UniTor ESG Insight System/
 ├── assets/
 │   ├── logo.png
 │   ├── workflow.png
+│   ├── targetaudience.png
 │   │
 │   ├── sdg_icons/
 │   ├── gri_icons/
 │   ├── quality_icons/
-│   └──  climate_icons/
+│   └── climate_icons/
 │
 └── example_reports/
     └── example_outputs/
