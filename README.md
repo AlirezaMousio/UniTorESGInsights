@@ -41,10 +41,10 @@ This enables **inspection, correction, and re-aggregation of ESG predictions**. 
 ![Target Audience](assets/targetaudience.png)
 The system is designed to support multiple stakeholder groups involved in ESG reporting, analysis, assurance, and decision-making:
 
-**Investors & Financial Analysts:** Retrieve, compare, and explore evidence across ESG topics and sustainability disclosures.
-**Auditors & Assurance Providers:** Identify weak, generic, or insufficiently supported disclosures and prioritize review efforts.
-**Policy Makers & Regulators:** Monitor disclosure patterns, reporting practices, and ESG trends across companies, sectors, or reporting periods.
-**Corporate Sustainability Managers & Chief Sustainability Officers (CSOs):** Detect reporting gaps, assess disclosure quality, and improve sustainability reporting practices.
+-**Investors & Financial Analysts:** Retrieve, compare, and explore evidence across ESG topics and sustainability disclosures.
+-**Auditors & Assurance Providers:** Identify weak, generic, or insufficiently supported disclosures and prioritize review efforts.
+-**Policy Makers & Regulators:** Monitor disclosure patterns, reporting practices, and ESG trends across companies, sectors, or reporting periods.
+-**Corporate Sustainability Managers & Chief Sustainability Officers (CSOs):** Detect reporting gaps, assess disclosure quality, and improve sustainability reporting practices.
 
 ## Quick Start
 ### 🌐 [Live Demo](https://huggingface.co/spaces/sag-uniroma2/UniTorESGInsights)
