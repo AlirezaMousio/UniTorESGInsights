@@ -38,7 +38,7 @@ This enables **inspection, correction, and re-aggregation of ESG predictions**. 
 8. Generate final traceable dashboards
 
 ### Target Audience
-![Target Audience](assets/logo.png)
+![Target Audience](assets/targetaudience.png)
 The system is designed to support multiple stakeholder groups involved in ESG reporting, analysis, assurance, and decision-making:
 
 **Investors & Financial Analysts:** Retrieve, compare, and explore evidence across ESG topics and sustainability disclosures.
