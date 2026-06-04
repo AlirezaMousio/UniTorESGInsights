@@ -17,7 +17,7 @@ Companion repository for the paper (UniTor ESG Insights: An Interactive Human-in
 UniTor ESG Insights is a **human-in-the-loop ESG analysis system** that performs **traceable, paragraph-level sustainability report analysis**.
 Unlike document-level ESG classifiers, this system is designed around a **bottom-up evidence workflow**, where every prediction can be traced back to the original paragraph in the source PDF. The system transforms a sustainability report into:
 
-PDF → Paragraph Units → ESG Classifiers → Interactive Evidence Layer → Aggregation Dashboards
+**PDF → Paragraph Units → ESG Classifiers → Interactive Evidence Layer → Aggregation Dashboards**
 
 Every output (SDG, GRI, disclosure quality, climate relevance) is:
 
@@ -35,7 +35,16 @@ This enables **inspection, correction, and re-aggregation of ESG predictions**. 
 5. Correct outputs manually (CSV editing)  
 6. Re-upload corrected data  
 7. Re-run downstream analysis  
-8. Generate final traceable dashboards  
+8. Generate final traceable dashboards
+
+### Target Audience
+![Target Audience](assets/logo.png)
+The system is designed to support multiple stakeholder groups involved in ESG reporting, analysis, assurance, and decision-making:
+
+**Investors & Financial Analysts:** Retrieve, compare, and explore evidence across ESG topics and sustainability disclosures.
+**Auditors & Assurance Providers:** Identify weak, generic, or insufficiently supported disclosures and prioritize review efforts.
+**Policy Makers & Regulators:** Monitor disclosure patterns, reporting practices, and ESG trends across companies, sectors, or reporting periods.
+**Corporate Sustainability Managers & Chief Sustainability Officers (CSOs):** Detect reporting gaps, assess disclosure quality, and improve sustainability reporting practices.
 
 ## Quick Start
 ### 🌐 [Live Demo](https://huggingface.co/spaces/sag-uniroma2/UniTorESGInsights)
