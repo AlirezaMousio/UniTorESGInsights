@@ -47,7 +47,7 @@ The system is designed to support multiple stakeholder groups involved in ESG re
   - **Corporate Sustainability Managers & Chief Sustainability Officers (CSOs):** Detect reporting gaps, assess disclosure quality, and improve sustainability reporting practices.
 
 ## Quick Start
-### 🌐 [Live Demo](https://huggingface.co/spaces/sag-uniroma2/UniTorESGInsights)
+### 🌐 [Live Demo](https://huggingface.co/spaces/sag-uniroma2/UniTorESGInsight)
 
 No installation required. All [models](https://hf.co/collections/sag-uniroma2/unitoresginsights) are automatically loaded from Hugging Face Hub.
 
@@ -174,7 +174,7 @@ All [trained models](https://hf.co/collections/sag-uniroma2/unitoresginsights) a
 
 ## Hugging Face Deployment
 
-Implemented using **Gradio** and deployed on **Hugging Face Spaces**. The [system](https://huggingface.co/spaces/sag-uniroma2/UniTorESGInsights) is fully deployed via Hugging Face Spaces, allowing direct execution of the pipeline and interactive demonstration without local setup using free-tier infrastructure:
+Implemented using **Gradio** and deployed on **Hugging Face Spaces**. The [system](https://huggingface.co/spaces/sag-uniroma2/UniTorESGInsight) is fully deployed via Hugging Face Spaces, allowing direct execution of the pipeline and interactive demonstration without local setup using free-tier infrastructure:
 
 - CPU: 2 vCPU / 16 GB RAM
 - GPU: ZeroGPU (on-demand NVIDIA H200 access)
