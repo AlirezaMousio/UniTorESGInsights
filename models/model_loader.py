@@ -104,13 +104,7 @@ def get_model(task_name):
         return LOADED_MODELS[task_name]
 
     repo = f"sag-uniroma2/{MODEL_FOLDERS[task_name]}"
-    #folder = snapshot_download(repo_id=repo)
-    
-    token = os.getenv("HF_TOKEN")
-    if token is None:
-        raise ValueError("HF_TOKEN is not set in Space Secrets")
-    
-    folder = snapshot_download(repo_id=repo, token=token)
+    folder = snapshot_download(repo_id=repo)
 
     if task_name == "17 SDG Alignment":
         bundle = load_sdg_model_from_folder(folder)
