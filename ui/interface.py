@@ -1,4 +1,6 @@
 import gradio as gr
+import pandas as pd
+import plotly.graph_objects as go
 
 from ui.filters import (
     sdg_images,
@@ -38,6 +40,15 @@ from ui.gradio_functions import (
     run_selected_tasks
 )
 
+
+def _empty_plot():
+    return go.Figure()
+
+
+def _empty_df():
+    return pd.DataFrame()
+
+
 def build_interface():
     with gr.Blocks() as demo:
 
@@ -75,7 +86,7 @@ def build_interface():
 
         with gr.Row():
             img = gr.Image()
-            table = gr.Dataframe(interactive=True)
+            table = gr.Dataframe(value=_empty_df(), interactive=True)
 
         text = gr.Markdown()
 
@@ -88,7 +99,7 @@ def build_interface():
 
         sa_download = gr.File(label="Download SFA Results")
 
-        chart1 = gr.Plot(label="Distribution")
+        chart1 = gr.Plot(value=_empty_plot(), label="Distribution")
 
         upload_csv_2 = gr.File(label="(Optional) Upload Modified SFA CSV")
 
@@ -131,12 +142,14 @@ def build_interface():
 
         run_tasks_btn_1 = gr.Button("Run", variant="primary")
 
-        chart_tasks_1 = gr.Plot()
+        chart_tasks_1 = gr.Plot(value=_empty_plot())
         download_1 = gr.File(label="Download Results")
 
 
         # ---------- SDG FILTER ----------
-        with gr.Column(visible=False) as sdg_container:
+        # NOTE: starts visible=True (not False) -- see the demo.load()
+        # workaround below for why.
+        with gr.Column(visible=True) as sdg_container:
             gr.Markdown("### SDG Filter")
 
             sdg_gallery = gr.Gallery(
@@ -145,7 +158,7 @@ def build_interface():
                 allow_preview=False
             )
 
-        sdg_result_table = gr.Dataframe(interactive=True)
+        sdg_result_table = gr.Dataframe(value=_empty_df(), interactive=True)
 
         sdg_gallery.select(
             fn=filter_sdg,
@@ -154,7 +167,7 @@ def build_interface():
 
 
         # ---------- GRI FILTER ----------
-        with gr.Column(visible=False) as gri_container:
+        with gr.Column(visible=True) as gri_container:
             gr.Markdown("### GRI Topic Filter")
 
             gri_gallery = gr.Gallery(
@@ -163,7 +176,7 @@ def build_interface():
                 allow_preview=False
             )
 
-        gri_result_table = gr.Dataframe(interactive=True)
+        gri_result_table = gr.Dataframe(value=_empty_df(), interactive=True)
 
         gri_gallery.select(
             fn=filter_gri,
@@ -203,14 +216,14 @@ def build_interface():
 
         run_tasks_btn_2 = gr.Button("Run", variant="primary")
 
-        chart_tasks_2 = gr.Plot()
+        chart_tasks_2 = gr.Plot(value=_empty_plot())
         download_2 = gr.File(label="Download Results")
 
         # ---------- Quality Filter ----------
         with gr.Row():
 
             # ---------- INFORMATIVE / VAGUE ----------
-            with gr.Column(visible=False) as quality1_container:
+            with gr.Column(visible=True) as quality1_container:
                 gr.Markdown("### Informative vs Non-Informative/Vague")
         
                 quality1_gallery = gr.Gallery(
@@ -220,7 +233,7 @@ def build_interface():
                 )
         
             # ---------- QUALITATIVE / QUANTITATIVE ----------
-            with gr.Column(visible=False) as quality2_container:
+            with gr.Column(visible=True) as quality2_container:
         
                 gr.Markdown("### Qualitative vs Quantitative")
         
@@ -231,7 +244,7 @@ def build_interface():
                 )
         
             # ---------- GREENWASHING ----------
-            with gr.Column(visible=False) as quality3_container:
+            with gr.Column(visible=True) as quality3_container:
         
                 gr.Markdown("### Greenwashing Potential")
         
@@ -241,7 +254,7 @@ def build_interface():
                     allow_preview=False
                 )
 
-        quality_result_table = gr.Dataframe(interactive=True)
+        quality_result_table = gr.Dataframe(value=_empty_df(), interactive=True)
         
         # ---------- Gallery Events ----------
         quality1_gallery.select(
@@ -295,14 +308,14 @@ def build_interface():
 
         run_tasks_btn_3 = gr.Button("Run", variant="primary")
 
-        chart_tasks_3 = gr.Plot()
+        chart_tasks_3 = gr.Plot(value=_empty_plot())
         download_3 = gr.File(label="Download Results")
 
         # ---------- Climate Filter ----------
         with gr.Row():
 
             # ---------- Climate Alignment ----------
-            with gr.Column(visible=False) as climate1_container:
+            with gr.Column(visible=True) as climate1_container:
                 gr.Markdown("### Climate Alignment")
         
                 climate1_gallery = gr.Gallery(
@@ -313,7 +326,7 @@ def build_interface():
                 )
         
             # ---------- GRI Climate Alignment ----------
-            with gr.Column(visible=False) as climate2_container:
+            with gr.Column(visible=True) as climate2_container:
                 gr.Markdown("### GRI Climate Alignment")
         
                 climate2_gallery = gr.Gallery(
@@ -324,12 +337,12 @@ def build_interface():
                 )
 
         # shared table ROW 1
-        climate_table_1 = gr.Dataframe(interactive=True)
+        climate_table_1 = gr.Dataframe(value=_empty_df(), interactive=True)
 
         with gr.Row():
 
             # ---------- Climate Action SDG13 ----------
-            with gr.Column(visible=False) as climate3_container:
+            with gr.Column(visible=True) as climate3_container:
                 gr.Markdown("### Climate Action (SDG13)")
         
                 climate3_gallery = gr.Gallery(
@@ -340,7 +353,7 @@ def build_interface():
                 )
         
             # ---------- GRI SDG13 ----------
-            with gr.Column(visible=False) as climate4_container:
+            with gr.Column(visible=True) as climate4_container:
                 gr.Markdown("### GRI Climate Action (SDG13)")
         
                 climate4_gallery = gr.Gallery(
@@ -351,7 +364,7 @@ def build_interface():
                 )
 
         # shared table ROW 2
-        climate_table_2 = gr.Dataframe(interactive=True)
+        climate_table_2 = gr.Dataframe(value=_empty_df(), interactive=True)
 
         # ---------- Gallery Events ----------
         climate1_gallery.select(
@@ -393,5 +406,15 @@ def build_interface():
             outputs=[download_3, table, chart_tasks_3]
         )
 
+        toggle_containers = [
+            sdg_container, gri_container,
+            quality1_container, quality2_container, quality3_container,
+            climate1_container, climate2_container, climate3_container, climate4_container
+        ]
+
+        def _hide_all_toggle_containers():
+            return [gr.update(visible=False) for _ in toggle_containers]
+
+        demo.load(_hide_all_toggle_containers, outputs=toggle_containers)
 
         return demo
